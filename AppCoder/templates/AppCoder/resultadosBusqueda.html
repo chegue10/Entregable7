@@ -1,0 +1,25 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+Comentarios
+{% endblock %}
+
+{% block contenido_que_cambia %}
+{% if cursos %}
+
+<ul>
+    {% for comentario in comentarios %}
+        <li>{{comentario.titulo}}</li>
+        <li>{{comentario.comentario}}</li>
+        <br>
+    {% endfor %}
+</ul>
+
+{% else %}
+<p>NO SE ENCONTRARON CURSOS</p>
+
+{% endif %}
+
+{% endblock %}
