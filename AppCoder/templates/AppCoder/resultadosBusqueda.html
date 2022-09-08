@@ -7,18 +7,19 @@ Comentarios
 {% endblock %}
 
 {% block contenido_que_cambia %}
-{% if cursos %}
-
+{% if comentarios %}
+<p>Se encontraron {{ cantidad }} comentarios</p>
 <ul>
     {% for comentario in comentarios %}
-        <li>{{comentario.titulo}}</li>
-        <li>{{comentario.comentario}}</li>
+        <li>titulo: {{ comentario.titulo }}</li>
+        <li>comentario: {{ comentario.comentario }}</li>
+        <li>fecha: {{ comentario.fecha }}</li>
         <br>
     {% endfor %}
 </ul>
 
 {% else %}
-<p>NO SE ENCONTRARON CURSOS</p>
+<p>no se encontraron comentarios</p>
 
 {% endif %}
 

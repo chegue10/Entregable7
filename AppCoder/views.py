@@ -48,12 +48,13 @@ def comentarios(request):
     return render(request, "Appcoder/comentarios.html", {"formulario":form})
 
 def buscar(request):
+
     if request.method=="POST":
         form= BuscarForm(request.POST)
         if form.is_valid():
             informacion= form.cleaned_data
-            comantarios =Comentarios.objects.filter(comentario=informacion['cadena'])
-            return render(request, "Appcoder/resultadosBusqueda.html", {"comentarios":comentarios})
+            cantidad = len(Comentarios.objects.filter(comentario=informacion['cadena']))
+            return render(request, "Appcoder/resultadosBusqueda.html", {"cantidad":cantidad, "comentarios":Comentarios.objects.filter(comentario=informacion['cadena'])})
             
     else:
         form = BuscarForm()
